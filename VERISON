@@ -1,0 +1,37 @@
+Version: From SINVOIOP was Outdated and not SUPPORTED by the current package-systems Linux(Debia/Ubuntu) Deploy!
+
+To fix the installation for Systems builded in time I Hot-Fixed the Installtion-Files.
+
+On Systems which was builded just in time , python2, python2-pip and swig2.0 are outdated and not more available by the package-manager!
+
+
+
+Changes:
+
+OLD MAKEFILE:
+
+all: bindings
+	python setup.py build
+
+bindings:
+	swig2.0 -python wiringpi.i
+
+install:
+	sudo python setup.py install
+
+
+
+NEW MAKEFILE:
+
+all: bindings
+	python3 setup.py build
+
+bindings:
+	swig -python wiringpi.i
+
+install:
+	sudo python3 setup.py install
+
+
+
+
